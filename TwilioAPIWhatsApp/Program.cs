@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
-
 
 class Program
 {
@@ -20,6 +20,7 @@ class Program
             to: new Twilio.Types.PhoneNumber("whatsapp:+5511991164957")
         );
 
-        Console.WriteLine(message.Sid);
+        Console.WriteLine(message.DateCreated);
+        Console.ReadKey();
     }
 }
