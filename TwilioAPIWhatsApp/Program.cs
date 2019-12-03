@@ -12,15 +12,26 @@ class Program
         const string accountSid = "AC6a2a8a255366902772b2dbf438bba5d7";
         const string authToken = "b1ef326d8273c186a1308ac568bdcedf";
 
-        TwilioClient.Init(accountSid, authToken);
+        for (int i = 0; i < 10; i++)
+        {
+            TwilioClient.Init(accountSid, authToken);
 
-        var message = MessageResource.Create(
-            body: "ai sim meu patrao!",
-            from: new Twilio.Types.PhoneNumber("whatsapp:+14155238886"),
-            to: new Twilio.Types.PhoneNumber("whatsapp:+5511991164957")
-        );
 
-        Console.WriteLine(message.DateCreated);
+
+            var message = MessageResource.Create(
+                body: $"Image Twilio Sandbox for WhatsApp {i}",
+                from: new Twilio.Types.PhoneNumber("whatsapp:+14155238886"),
+                to: new Twilio.Types.PhoneNumber("whatsapp:+5511954580057"),
+                mediaUrl : new List<Uri> { new Uri("images/img.png") }
+
+            );
+
+            Console.WriteLine(message);
+        }
+
+       
+
+        
         Console.ReadKey();
     }
 }
